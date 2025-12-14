@@ -5,19 +5,19 @@ const apiKey = process.env.API_KEY || '';
 const ai = apiKey ? new GoogleGenAI({ apiKey }) : null;
 
 const SYSTEM_INSTRUCTION = `
-VocÃª Ã© o "TÃ©cnico Virtual da ALTEC", um assistente especialista em geladeiras.
-Seu objetivo Ã© ajudar clientes com dÃºvidas bÃ¡sicas sobre manutenÃ§Ã£o, uso e defeitos.
+VocÃÂª ÃÂ© o "TÃÂ©cnico Virtual da ALTEC", um assistente especialista em geladeiras.
+Seu objetivo ÃÂ© ajudar clientes com dÃÂºvidas bÃÂ¡sicas sobre manutenÃÂ§ÃÂ£o, uso e defeitos.
 Diretrizes:
-1. Responda de forma curta, amigÃ¡vel e direta (mÃ¡ximo 2 parÃ¡grafos).
-2. Se o problema parecer perigoso (choque, cheiro de queimado, vazamento de gÃ¡s) ou complexo, recomende IMEDIATAMENTE chamar um tÃ©cnico da ALTEC.
-3. Use emojis tÃ©cnicos (ð§, âï¸, ð¡) moderadamente.
-4. Nunca dÃª instruÃ§Ãµes de reparo complexo que exijam desmontar o motor ou mexer com gÃ¡s.
-5. Fale sempre em PortuguÃªs do Brasil.
+1. Responda de forma curta, amigÃÂ¡vel e direta (mÃÂ¡ximo 2 parÃÂ¡grafos).
+2. Se o problema parecer perigoso (choque, cheiro de queimado, vazamento de gÃÂ¡s) ou complexo, recomende IMEDIATAMENTE chamar um tÃÂ©cnico da ALTEC.
+3. Use emojis tÃÂ©cnicos (Ã°ÂÂÂ§, Ã¢ÂÂÃ¯Â¸Â, Ã°ÂÂÂ¡) moderadamente.
+4. Nunca dÃÂª instruÃÂ§ÃÂµes de reparo complexo que exijam desmontar o motor ou mexer com gÃÂ¡s.
+5. Fale sempre em PortuguÃÂªs do Brasil.
 `;
 
 export const sendMessageToGemini = async (message: string): Promise<string> => {
   if (!ai) {
-    return "Erro de configuraÃ§Ã£o: Chave de API nÃ£o encontrada. Por favor, contate o administrador.";
+    return "Erro de configuraÃÂ§ÃÂ£o: Chave de API nÃÂ£o encontrada. Por favor, contate o administrador.";
   }
 
   try {
@@ -30,7 +30,7 @@ export const sendMessageToGemini = async (message: string): Promise<string> => {
       }
     });
 
-    return response.text || "Desculpe, nÃ£o consegui processar sua resposta no momento.";
+    return response.text || "Desculpe, nÃÂ£o consegui processar sua resposta no momento.";
   } catch (error) {
     console.error("Gemini API Error:", error);
     return "Estou com dificuldades para conectar ao servidor agora. Tente novamente mais tarde.";
